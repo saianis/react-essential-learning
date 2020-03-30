@@ -66,3 +66,56 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### Git commands for Development
+
+#### List existing branches:
+
+```
+git branch
+```
+
+#### To create a new branch:
+
+```
+git checkout -b <branch name>
+```
+
+#### Push newly created branch to server:
+
+```
+git push origin <branch name>
+```
+
+#### Switch to an existing branch:
+
+```
+git checkout <branch name>
+```
+
+#### Merge branch:
+
+```
+git checkout master
+
+git pull origin master
+
+git merge <branch name>
+
+git push origin master
+```
+
+#### Delete branch:
+
+##### local:
+
+```
+git branch -d <branch name>
+```
+
+##### remote:
+
+```
+git push origin :<branch name>
+```
