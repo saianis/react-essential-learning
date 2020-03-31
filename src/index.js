@@ -8,42 +8,33 @@ let skiData = {
   goal: 100
 }
 
-// React Component
-//  Note: All component names must start with Uppercase letter
-class SkiDayCounter extends Component {
-
-  // custom methods
-  getPercent = decimal => {
-    return decimal * 100 + '%'
-  }
-
-  calGoalProcess = (total, goal) => {
-    return this.getPercent(total/goal);
-  }
-
-  render() {
-    // ES6 destructuring 
-    const {total, powder, backCountry, goal} = this.props
-    return (
-      <section>
-        <div>
-          <p>Total Days: {total}</p>
-        </div>
-        <div>
-          <p>Powder Days: {powder}</p>
-        </div>
-        <div>
-          <p>Backcountry Days: {backCountry}</p>
-        </div>
-        <div>
-          <p>Goal Progress: {this.calGoalProcess(total, goal)}</p>
-        </div>
-      </section>
-    )
-  }
-
+const getPercent = decimal => {
+  return decimal * 100 + '%'
 }
 
+const calGoalProcess = (total, goal) => {
+  return getPercent(total/goal);
+}
+
+// Function components
+const SkiDayCounter = ({total, powder, backCountry, goal}) => {
+  return (
+    <section>
+      <div>
+        <p>Total Days: {total}</p>
+      </div>
+      <div>
+        <p>Powder Days: {powder}</p>
+      </div>
+      <div>
+        <p>Backcountry Days: {backCountry}</p>
+      </div>
+      <div>
+        <p>Goal Progress: {calGoalProcess(total, goal)}</p>
+      </div>
+    </section>
+  )
+}
 
 render(
   <SkiDayCounter 
