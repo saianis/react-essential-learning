@@ -25,15 +25,10 @@ const Book = ({title, author, pages}) => {
 
 // Parent component
 class Library extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: true
-    }
-    this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
-  }
 
-  toggleOpenClosed() {
+  state = { open: false }
+
+  toggleOpenClosed = () => {
     this.setState( prevState => 
       ({
         open: !prevState.open
