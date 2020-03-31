@@ -9,6 +9,7 @@ var style = {
 
 
 
+// without JSX
 
 // const title = React.createElement(
 //   'ul',
@@ -20,8 +21,10 @@ var style = {
 //   )
 // )
 
+// with Jsx
+
 ReactDOM.render(
-  <div>
+  <div style={style}>
     <h1> Welcome to JSX</h1>
     <p>React is fun</p>
   </div>, 
