@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
+let bookList = [
+  {"title": "Three mistakes of my life", "author": "Chetan Bhagat", "pages": 234},
+  {"title": "Two states", "author": "Chetan Bhagat", "pages": 354},
+  {"title": "One night at call center", "author": "Chetan Bhagat", "pages": 300}
+]
+
+
+
+
+// Child Component
 const Book = ({title, author, pages}) => {
   return (
     <section>
@@ -11,17 +21,24 @@ const Book = ({title, author, pages}) => {
   )
 }
 
-const Library = () => {
+
+// Parent component
+const Library = ({books}) => {
   return (
     <div>
-      <Book title='Three mistakes of my life' author='Chetan Bhagat' pages={300}/>
-      <Book title='Two states' author='Chetan Bhagat' pages={250}/>
-      <Book title='One night at Call Center' author='Chetan Bhagat' pages={350}/>
+      {books.map(
+        ( book, i) => 
+          <Book 
+            key= {i}
+            title={book.title} 
+            author={book.author} 
+            pages={book.pages}/>
+      )}
     </div>
   )
 }
 
 render(
-  <Library />, 
+  <Library books={bookList} />, 
   document.getElementById('root')
 )
