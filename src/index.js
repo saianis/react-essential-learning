@@ -1,17 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+var style = {
+  backgroundColor: 'blue',
+  color: 'white',
+  fontFamily: 'Arial'
+};
+
+
+
+
+// const title = React.createElement(
+//   'ul',
+//   {id: 'title', className: 'header', style: style},
+//   React.createElement(
+//     'li',
+//     {},
+//     'item on our list'
+//   )
+// )
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div>
+    <h1> Welcome to JSX</h1>
+    <p>React is fun</p>
+  </div>, 
   document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+)
