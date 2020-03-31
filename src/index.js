@@ -1,32 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-var style = {
-  backgroundColor: 'blue',
-  color: 'white',
-  fontFamily: 'Arial'
-};
+// React Component
 
+//  Note: All component names must start with Uppercase letter
+class Message extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello All</h1>
+      </div>
+    )
+  }
 
+}
 
-// without JSX
-
-// const title = React.createElement(
-//   'ul',
-//   {id: 'title', className: 'header', style: style},
-//   React.createElement(
-//     'li',
-//     {},
-//     'item on our list'
-//   )
-// )
-
-// with Jsx
 
 ReactDOM.render(
-  <div style={style}>
-    <h1> Welcome to JSX</h1>
-    <p>React is fun</p>
-  </div>, 
+  <Message />, 
   document.getElementById('root')
 )
