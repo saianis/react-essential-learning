@@ -37,13 +37,23 @@ const NotHiring = () =>
 
 
 // Parent component
+// Note: Component lifecycle methods are only available when using class syntax and can't use them with function components
 class Library extends Component {
 
   state = { 
     open: true,
     freeBookmark: true,
-    hiring: false
-   }
+    hiring: false,
+    data: [],
+    loading: false
+  }
+
+  componentDidMount() {
+    this.setState({loading : true})
+    fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/1')
+          .then(data => data.json())
+          .then(data => this.setState({data, loading: false}))
+  }
 
   toggleOpenClosed = () => {
     this.setState( prevState => 
@@ -53,11 +63,27 @@ class Library extends Component {
     ))
   }
 
+  
+
   render() {
     const { books } = this.props
     return (
       <div>
         {this.state.hiring ? <Hiring / > : <NotHiring />}
+        {this.state.loading ? 'loading...' : 
+          <div>
+            {this.state.data.map (product => {
+              return (
+                <div>
+                  <h3>Library product of the week!</h3>
+                  <h4>{product.name}</h4>
+                  <img src={product.image} height={100}/>
+
+                </div>
+              )
+            })}
+
+          </div>}
         <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
         <button onClick={this.toggleOpenClosed}>
           Change
