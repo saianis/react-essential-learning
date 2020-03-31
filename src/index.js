@@ -8,25 +8,25 @@ let bookList = [
   {"title": "One night at call center", "author": "Chetan Bhagat", "pages": 300}
 ]
 
-
-
-
 // Child Component
-const Book = ({title, author, pages}) => {
+const Book = ({title, author, pages, freeBookmark}) => {
   return (
     <section>
       <h2>{title}</h2>
       <p>by: {author}</p>
       <p>pages: {pages} pages</p>
+      <p>Free Bookmark Today: {freeBookmark ? 'yes!' : 'no!'}</p>
     </section>
   )
 }
 
-
 // Parent component
 class Library extends Component {
 
-  state = { open: false }
+  state = { 
+    open: true,
+    freeBookmark: true
+   }
 
   toggleOpenClosed = () => {
     this.setState( prevState => 
@@ -50,7 +50,8 @@ class Library extends Component {
               key= {i}
               title={book.title} 
               author={book.author} 
-              pages={book.pages}/>
+              pages={book.pages}
+              freeBookmark={this.state.freeBookmark}/>
         )}
       </div>
     )
