@@ -30,6 +30,15 @@ class Library extends Component {
     this.state = {
       open: true
     }
+    this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
+  }
+
+  toggleOpenClosed() {
+    this.setState( prevState => 
+      ({
+        open: !prevState.open
+      }
+    ))
   }
 
   render() {
@@ -37,6 +46,9 @@ class Library extends Component {
     return (
       <div>
         <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
+        <button onClick={this.toggleOpenClosed}>
+          Change
+        </button>
         {books.map(
           ( book, i) => 
             <Book 
